@@ -1,27 +1,34 @@
 ## redux-saga exercise
 
-The goal of this exercise is to learn redux-saga. There are thousands of tutorials online but there's no better way to learn than hacking it yourself.
+Cet exercice est tiré d'un exercice de react-academy.
+Le but de cet exercice est d'apprendre redux-saga. Il existe des milliers de tutoriels en ligne, mais le meilleur moyen d'apprendre reste de travailler par soi-même sur le problème.
 
 ## Requirements
-You need to be comfortable writing JavaScript (ES6: Module system, class, destructuring assignment).
-You need to have `node`and `npm`installed in your computer.
+Être à l'aise avec JavaScript (syntaxe ES6, systèmes de modules, classes etc)
+Avoir node et npm ou yarn sur sa machine
 
 ## How to install
 
-- `git clone git@github.com:reactjs-academy/redux-saga-exercise.git`
+- `git clone git@github.com:lapwil/redux-saga-exercise.git`
 - `cd redux-saga-exercise`
 - `npm i`
 - `npm start`
-- `Open the Browser with the url http://localhost:3000` and you will be ready to start
+- `ouvrir http://localhost:3000` et c'est parti
 
 
 ## Exercise
 
-1. Configure redux-saga in src/store/configureStore.dev.js
-2. Move the logic inside startSession action (it uses the promise middleware) in src/actions/index.js to a saga in src/sagas/index
-3. Move the logic inside fetchBeers action (it uses the thunk middleware) in src/actions/index.js to a saga in src/sagas/index
-4. Execute `npm test`. We have 3 tests in src/sagas/index.spec.js. One is implemented "#Saga: startSession". You need to implement the two in "#Saga: fetchBeers"
-5. Bonus. Have you got some extra time? implement a reducer, action and saga so every time the user likes a beer it is stored in the state. Display the list of liked beers in components/Navigations/Menu.jsx where it says "This is exercise question 5 ;)"
+1. Configurer redux-saga dans le fichier de configuration du store src/store/configureStore.dev.js
+2. Déplacer et adapter la logique de l'action startSession de src/actions/index.js dans un fichier de saga dans src/sagas/index
+3. Déplacer et adapter la logique de l'action fetchBeers  de src/actions/index.js dans un fichier de saga dans src/sagas/index
+4. Lancer les tests `npm test`. Il y en a 3 dans src/sagas/index.spec.js. Le premier est implémenté "#Saga: startSession". Il faut alors implémenter les deux autres pour "#Saga: fetchBeers"
+5. Implemente un reducer, action et saga pour qu'à chaque fois qu'un utilisateur aime une bière ce soit stocké dans le state. Affiche ensuite la liste des bières likées dans components/Navigations/Menu.jsx à l'endroit indiqué "This is exercise question 5 ;)"
+6. Bonus. Migrer le projet vers react 18. Il y aura des changements à faire comme transformer certains states de components en hooks, migrer ainsi certains class components en functionnal components.
+
+## Infos pratiques
+
+Quelques tips sont écrits dans les fichiers et peuvent te guider à remplir l'exercice, j'attend à ce que chaque point de la liste soit accompagné d'une PR, décrivant la démarche que tu as suivie pour compléter l'exercice.
+Le fichier n'est pas normé avec les différentes infos que j'avais pu te transmettre lors des précédents exercices, fais en sorte que cela le devienne.
 
 ## License
 
