@@ -9,7 +9,8 @@ Avoir node et npm ou yarn sur sa machine
 
 ## How to install
 
-- `git clone git@github.com:lapwil/redux-saga-exercise.git`
+- Forker le projet
+- `git clone git@github.com:<ton pseudo>/redux-saga-exercise.git`
 - `cd redux-saga-exercise`
 - `npm i`
 - `npm start`
