@@ -5,13 +5,15 @@ import { createStore, applyMiddleware } from 'redux'
 import reducers from '../reducers'
 import createSagaMiddleware, { runSaga } from "redux-saga";
 
+import MySaga from '../sagas'
 // Tip: replace the thunk and promise middleware with the redux-saga middleware
 
-const configureStore = () => {
+const configureStore = (initialState) => {
   const sagaMiddleWare = createSagaMiddleware();
   const store = createStore(
     reducers,
-    applyMiddleware(sagaMiddleWare)
+    initialState,
+    applyMiddleware(sagaMiddleWare),
   )
 
   return {
