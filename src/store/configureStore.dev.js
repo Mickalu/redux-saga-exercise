@@ -2,24 +2,23 @@ import createLogger from 'redux-logger'
 import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import { createStore, applyMiddleware } from 'redux'
+import createSagaMiddleware, { runSaga } from "redux-saga";
+
 import reducers from '../reducers'
 
 // Tip: replace the thunk and promise middleware with the redux-saga middleware
 
 const configureStore = () => {
+  const sagaMiddleWare = createSagaMiddleware();
   const store = createStore(
     reducers,
-    applyMiddleware(
-      thunk,
-      promise,
-      createLogger()
-    )
+    applyMiddleware(sagaMiddleWare),
   )
 
   return {
-    ...store
-    // Tip: you have to add something here from redux-saga
+    ...store,
+    runSaga: sagaMiddleWare.run
   }
 }
 
-export default configureStore
+export default configureStore;
