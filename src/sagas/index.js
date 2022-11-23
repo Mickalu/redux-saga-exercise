@@ -1,3 +1,7 @@
-import { takeEvery } from 'redux-saga'
-import { call, put, select } from 'redux-saga/effects'
-import * as api from '../api'
+import { spawn } from 'redux-saga/effects'
+
+import sessionSaga from './sagaSession';
+
+export default function* rootSaga() {
+    yield spawn(sessionSaga)
+};
