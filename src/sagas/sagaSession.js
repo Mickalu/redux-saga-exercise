@@ -1,16 +1,23 @@
 import { call, takeEvery } from "redux-saga";
-import { sagaActions } from "./sagaSessionActions";
+import { put } from "redux-saga/effects";
+import { RECEIVE_SESSION } from "../actions";
 import { startSession } from "../api";
 
-function* fetchStartSession(action){
+export function* fetchStartSession(action){
     try{
         yield call(startSession);
+        yield put({type: RECEIVE_SESSION});
     }
     catch(error){
         console.log(error);
     };
 };
 
-export default function* sessionSaga(){
-    yield takeEvery(sagaActions.FETCH_START_SESSION, fetchStartSession)
+export function* fetchReceiveSession(state = { session: {} }, action){
+    try{
+        return { ...state, session: action.session }
+    }
+    catch(error){
+        console.log(error);
+    }
 };

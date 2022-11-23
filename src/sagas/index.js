@@ -1,7 +1,6 @@
-import { spawn } from 'redux-saga/effects'
-
-import sessionSaga from './sagaSession';
+import * as sagaSession from './sagaSession';
 
 export default function* rootSaga() {
-    yield spawn(sessionSaga)
+    yield sagaSession.fetchReceiveSession()
+    yield sagaSession.fetchStartSession()
 };
