@@ -3,3 +3,5 @@ import configureStore from "./configureStore.dev";
 
 const store = configureStore;
 store.runSaga(rootSaga);
+
+export default store;
