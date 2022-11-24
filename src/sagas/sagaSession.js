@@ -1,13 +1,14 @@
+
 import { put, call } from "redux-saga/effects";
 import { RECEIVE_SESSION } from "../actions";
 import { startSession } from "../api";
 
-export function* fetchStartSession(){
-    try{
+export function* fetchStartSession() {
+    try {
         const session = yield call(startSession);
-        yield put({type: RECEIVE_SESSION, session: session} );
+        yield put({ type: RECEIVE_SESSION, session: session });
     }
-    catch(error){
+    catch(error) {
         console.log(error);
     };
 };

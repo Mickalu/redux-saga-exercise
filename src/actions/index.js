@@ -1,5 +1,4 @@
 // @flow
-import { actionChannel } from 'redux-saga/effects'
 import * as api from '../api'
 
 export const CURRENT_BEER_INDEX = 'CURRENT_BEER_INDEX'
