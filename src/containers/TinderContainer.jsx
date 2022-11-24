@@ -60,7 +60,7 @@ const mapStateToProps = (state:Object) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchBeers: actions.fetchBeers,
+  fetchBeers: () => dispatch(actions.fetchBeersAction()) ,
   setCurrentBeerIndex: actions.setCurrentBeerIndex,
   startSession: () => dispatch(actions.startSessionAction()),
 })

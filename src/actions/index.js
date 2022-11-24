@@ -39,6 +39,10 @@ export const startSessionAction = () => ({
 });
 
 /* I'm an action that dispatches other actions (LEVEL 3!)  */
+export const fetchBeersAction = () => ({
+  type: FETCH_BEERS,
+});
+
 export const fetchBeers = () => (dispatch, getState) => {
   const state = getState()
   if (state.beers.isFetching) {
