@@ -16,7 +16,7 @@ class TinderContainer extends Container {
     if (this.props.session.id) {
       this.props.fetchBeers();
     } else {
-      this.props.startSession;
+      this.props.startSession();
     }
   }
 
@@ -59,10 +59,10 @@ const mapStateToProps = (state:Object) => ({
   session: state.settings.session
 })
 
-const mapDispatchToProps = ({
+const mapDispatchToProps = (dispatch) => ({
   fetchBeers: actions.fetchBeers,
   setCurrentBeerIndex: actions.setCurrentBeerIndex,
-  startSession: actions.startSession
+  startSession: () => dispatch(actions.startSessionAction()),
 })
 
 export default connect(

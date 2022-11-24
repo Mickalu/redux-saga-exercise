@@ -1,4 +1,5 @@
 // @flow
+import { actionChannel } from 'redux-saga/effects'
 import * as api from '../api'
 
 export const CURRENT_BEER_INDEX = 'CURRENT_BEER_INDEX'
@@ -33,9 +34,9 @@ export const setCurrentBeerIndex = (currentIndex:number) => ({
 // with two simpler actions... level 1 maybe?
 
 /* I'm an action that returns promises (LEVEL 2!)  */
-export const startSession = () => (
-  api.startSession().then(receiveSession)
-)
+export const startSessionAction = () => ({
+  type: START_SESSION,
+});
 
 /* I'm an action that dispatches other actions (LEVEL 3!)  */
 export const fetchBeers = () => (dispatch, getState) => {
