@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga';
+import { takeLatest, takeEvery } from 'redux-saga';
 
 import { START_SESSION, FETCH_BEERS } from '../actions';
 import * as rootSagaSession from './sagaSession';
