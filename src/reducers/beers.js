@@ -1,19 +1,22 @@
-import { RECEIVE_BEERS, FETCHING_BEERS } from '../actions'
+
+import { RECEIVE_BEERS, FETCHING_BEERS } from '../actions';
 
 const beers = (state = { data: [], isFetching: false }, action) => {
   switch (action.type) {
     case RECEIVE_BEERS: {
-      return { data: [...state.data, ...action.beers],
-        isFetching: false
-      }
+      return {
+        data: [...state.data, ...action.beers],
+        isFetching: false,
+      };
     }
     case FETCHING_BEERS:
-      return { ...state,
-        isFetching: action.isFetching
-      }
+      return {
+        ...state,
+        isFetching: action.isFetching,
+      };
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default beers
+export default beers;
