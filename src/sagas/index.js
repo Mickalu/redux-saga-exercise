@@ -1,10 +1,10 @@
-import { takeEvery } from 'redux-saga';
+import { takeLatest } from 'redux-saga';
 
 import { START_SESSION, FETCH_BEERS } from '../actions';
 import * as rootSagaSession from './sagaSession';
 import * as rootBeers from "./sagaBeers";
 
 export default function* rootSaga() {
-    yield takeEvery(START_SESSION, rootSagaSession.fetchStartSession)
+    yield takeLatest(START_SESSION, rootSagaSession.fetchStartSession)
     yield takeEvery(FETCH_BEERS, rootBeers.fetchBeersSaga)
 };
