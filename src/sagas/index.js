@@ -1,9 +1,9 @@
 
-import { takeLatest } from 'redux-saga';
+import { takeLeading } from 'redux-saga/effects';
 
 import { START_SESSION } from '../actions';
 import fetchStartSession from './sagaSession';
 
 export default function* rootSaga() {
-  yield takeLatest(START_SESSION, fetchStartSession);
+  yield takeLeading(START_SESSION, fetchStartSession);
 }
