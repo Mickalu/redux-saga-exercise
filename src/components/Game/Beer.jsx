@@ -1,5 +1,6 @@
-import React from 'react'
-import BeerAttributes from './BeerAttributes'
+import React from 'react';
+
+import BeerAttributes from './BeerAttributes';
 
 class Beer extends React.Component {
   constructor () {

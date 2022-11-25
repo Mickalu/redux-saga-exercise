@@ -1,4 +1,3 @@
-
 import { RECEIVE_BEERS, FETCHING_BEERS } from '../actions';
 
 const beers = (state = { data: [], isFetching: false }, action) => {

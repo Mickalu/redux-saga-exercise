@@ -1,4 +1,3 @@
-
 import { CURRENT_BEER_INDEX } from '../actions';
 
 const beer = (state = { currentIndex: 0 }, action) => {

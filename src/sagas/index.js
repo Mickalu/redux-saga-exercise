@@ -1,4 +1,3 @@
-
 import { takeLeading } from 'redux-saga/effects';
 
 import { START_SESSION } from '../actions';
