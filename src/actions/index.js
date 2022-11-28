@@ -8,7 +8,7 @@ export const RECEIVE_BEERS = 'RECEIVE_BEERS';
 export const RECEIVE_SESSION = 'RECEIVE_SESSION';
 export const START_SESSION = 'START_SESSION';
 export const ADD_LIKE = 'ADD_LIKE';
-export const DISPLAY_LIKE = 'DISPLAY_LIKE';
+export const ADD_BEER_LIKE= 'ADD_BEER_LIKE';
 
 /* I'm an action creator (LEVEL 1!)  */
 export const receiveSession = (session:Object) => ({
