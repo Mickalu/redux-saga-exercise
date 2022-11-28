@@ -1,9 +1,9 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Container } from 'react-container-component'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Container } from 'react-container-component';
 
-import Tinder from '../components/Game/Tinder'
-import * as actions from '../actions'
+import Tinder from '../components/Game/Tinder';
+import * as actions from '../actions';
 
 class TinderContainer extends Container {
   constructor (props) {
@@ -31,7 +31,9 @@ class TinderContainer extends Container {
   }
 
   like = () => {
-    this.next()
+    console.log('ddd')
+    this.props.addLike();
+    this.next();
   }
 
   dislike = () => {
@@ -62,6 +64,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchBeers: () => dispatch(actions.fetchBeersAction()) ,
   setCurrentBeerIndex: actions.setCurrentBeerIndex,
   startSession: () => dispatch(actions.startSessionAction()),
+  addLike: () => dispatch({ type: actions.ADD_LIKE }),
 })
 
 export default connect(
