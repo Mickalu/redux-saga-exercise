@@ -1,10 +1,9 @@
-// @flow
 import React from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'react-container-component'
+
 import Tinder from '../components/Game/Tinder'
 import * as actions from '../actions'
-import { BEER_LIMIT_PER_PAGE } from '../config'
 
 class TinderContainer extends Container {
   constructor (props) {
@@ -14,9 +13,9 @@ class TinderContainer extends Container {
 
   componentDidMount = () => {
     if (this.props.session.id) {
-      this.props.fetchBeers()
+      this.props.fetchBeers();
     } else {
-      this.props.startSession()
+      this.props.startSession();
     }
   }
 
@@ -59,10 +58,10 @@ const mapStateToProps = (state:Object) => ({
   session: state.settings.session
 })
 
-const mapDispatchToProps = ({
+const mapDispatchToProps = (dispatch) => ({
   fetchBeers: actions.fetchBeers,
   setCurrentBeerIndex: actions.setCurrentBeerIndex,
-  startSession: actions.startSession
+  startSession: () => dispatch(actions.startSessionAction()),
 })
 
 export default connect(

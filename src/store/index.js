@@ -1,7 +1,7 @@
-import MySaga from "../sagas";
-import configureStore from "./configureStore.dev";
+import rootSaga from '../sagas';
+import configureStore from './configureStore.dev';
 
 const store = configureStore();
-store.runSaga(MySaga);
+store.runSaga(rootSaga);
 
 export default store;

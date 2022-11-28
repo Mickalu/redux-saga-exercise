@@ -1,6 +1,7 @@
 import React from 'react'
-import Actions from './Actions'
-import BeerContainer from '../../containers/BeerContainer'
+
+import Actions from './Actions';
+import BeerContainer from '../../containers/BeerContainer';
 
 const Tinder = ({ beer, like, dislike, counterAnimation }) => (
   <div>

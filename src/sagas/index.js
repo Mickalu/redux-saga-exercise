@@ -1,9 +1,8 @@
-import { takeEvery } from 'redux-saga'
-import { call, put, select } from 'redux-saga/effects'
-import * as api from '../api';
+import { takeLeading } from 'redux-saga/effects';
 
-function* MySaga(){
-    console.log("Redux Saga connected");
-};
+import { START_SESSION } from '../actions';
+import fetchStartSession from './sagaSession';
 
-export default MySaga;
+export default function* rootSaga() {
+  yield takeLeading(START_SESSION, fetchStartSession);
+}
