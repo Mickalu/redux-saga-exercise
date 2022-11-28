@@ -54,6 +54,16 @@ describe('#Saga: fetchBeers', () => {
   })
 
   it('should NOT fetch beers if it is already fetching beers', () => {
+    const fetchingBeersValue = true;
+    const fetchBeerGenerator = fetchBeersSaga();
 
+    const selectFetchingBeer = fetchBeerGenerator.next();
+    expect(selectFetchingBeer.value).to.be.deep.equal(select(isFetchingBeers));
+
+    const selectSettingsInfo = fetchBeerGenerator.next(fetchingBeersValue);
+    expect(selectSettingsInfo.value).to.be.deep.equal(select(settingsSelector));
+
+    const returnSaga = fetchBeerGenerator.next();
+    expect(returnSaga.value).to.be.deep.equal();
   })
 })
