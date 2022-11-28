@@ -28,3 +28,11 @@ export const setCurrentBeerIndex = (currentIndex:number) => ({
   type: CURRENT_BEER_INDEX,
   currentIndex
 })
+
+export const fetchBeers = () => ({
+  type: FETCH_BEERS,
+});
+
+export const startSession = () => ({
+  type: START_SESSION,
+});

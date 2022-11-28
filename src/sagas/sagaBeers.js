@@ -1,27 +1,27 @@
 import { call, put, select } from "redux-saga/effects";
 
 import { isFetchingBeers, settings } from "../selectors";
-import { FETCHING_BEERS, RECEIVE_BEERS } from "../actions";
+import { fetchingBeers, receiveBeers  } from "../actions";
 import { getBeers } from "../api";
 
 export default function* fetchBeersSaga(){
   try{
-    const fetchingBeers = yield select(isFetchingBeers);
+    const fetchingBeersValue = yield select(isFetchingBeers);
     const settingsInfo = yield select(settings);
 
-    if (fetchingBeers){
+    if (fetchingBeersValue){
       return
     }
 
-    yield put({type: FETCHING_BEERS, isFetching: true});
+    yield put(fetchingBeers(true));
     const beers = yield call(getBeers, settingsInfo.session.id);
 
     try {
-      yield put({type: FETCHING_BEERS, isFetching: false});
-      yield put({type: RECEIVE_BEERS, beers: beers});
+      yield put(fetchingBeers(false));
+      yield put(receiveBeers(beers));
     }
     catch (error) {
-      yield put({type: FETCHING_BEERS, isFetching: false});
+      yield put(fetchingBeers(false));
     }
 
   }
