@@ -1,4 +1,3 @@
-// @flow
 import 'whatwg-fetch'
 import Promise from 'es6-promise'
 import { API_BASE_URL, BEER_LIMIT_PER_PAGE } from '../config'

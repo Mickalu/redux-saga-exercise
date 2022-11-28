@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const BeerAttributes = ({ beer }) => (
   <ul className="beer_details">

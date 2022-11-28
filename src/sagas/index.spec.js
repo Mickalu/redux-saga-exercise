@@ -51,7 +51,7 @@ describe('#Saga: fetchBeers', () => {
     const putReceiveBeers = fetchBeerGenerator.next();
     expect(putReceiveBeers.value).to.be.deep.equal(put(receiveBeers(beers)));
 
-  })
+  });
 
   it('should NOT fetch beers if it is already fetching beers', () => {
     const fetchingBeersValue = true;
