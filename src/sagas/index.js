@@ -6,5 +6,5 @@ import fetchBeersSaga from "./sagaBeers";
 
 export default function* rootSaga() {
     yield takeLeading(START_SESSION, fetchStartSession)
-    yield takeEvery(FETCH_BEERS, fetchBeersSaga)
+    yield takeLeading(FETCH_BEERS, fetchBeersSaga)
 };

@@ -28,22 +28,3 @@ export const setCurrentBeerIndex = (currentIndex:number) => ({
   type: CURRENT_BEER_INDEX,
   currentIndex
 })
-
-// Tip: you must replace the following two functions
-// with two simpler actions... level 1 maybe?
-
-export const fetchBeers = () => (dispatch, getState) => {
-  const state = getState()
-  if (state.beers.isFetching) {
-    return
-  }
-  dispatch(fetchingBeers(true))
-  api.getBeers(state.settings.session.id)
-    .then((beers) => {
-      dispatch(fetchingBeers(false))
-      dispatch(receiveBeers(beers)
-    )
-    }).catch(() => {
-      dispatch(fetchingBeers(false))
-    })
-}
