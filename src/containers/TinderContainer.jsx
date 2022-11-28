@@ -31,7 +31,6 @@ class TinderContainer extends Container {
   }
 
   like = () => {
-    console.log('ddd')
     this.props.addLike();
     this.next();
   }
