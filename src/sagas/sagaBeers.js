@@ -1,10 +1,10 @@
 import { call, put, select } from "redux-saga/effects";
-import { isFetchingBeers, settings } from "../selectors";
 
+import { isFetchingBeers, settings } from "../selectors";
 import { FETCHING_BEERS, RECEIVE_BEERS } from "../actions";
 import { getBeers } from "../api";
 
-export function* fetchBeersSaga(){
+export default function* fetchBeersSaga(){
   try{
     const fetchingBeers = yield select(isFetchingBeers);
     const settingsInfo = yield select(settings);
