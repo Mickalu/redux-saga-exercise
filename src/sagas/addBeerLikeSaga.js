@@ -1,8 +1,8 @@
 import { put } from "redux-saga/effects";
 
-import { ADD_LIKE } from "../actions";
+import { ADD_BEER_LIKE } from "../actions";
 
 export default function* addLikesSaga () {
-    yield put({ type: ADD_LIKE });
+    yield put({ type: ADD_BEER_LIKE });
 };
 
