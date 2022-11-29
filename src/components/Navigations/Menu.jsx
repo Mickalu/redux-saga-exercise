@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
-import SideMenu from './Menus/SideMenu'
+import SideMenu from './Menus/SideMenu';
+import BeersLikedContainer  from '../../containers/BeersLikedContainer';
 
 const Menu = ({ isOpen, pageWrapId, toggleMenu }) => (
   <SideMenu
@@ -8,10 +10,9 @@ const Menu = ({ isOpen, pageWrapId, toggleMenu }) => (
     toggleMenu={toggleMenu}
   >
 
-    <h3 style={{ paddingTop: '50px' }}>Beers I like:</h3>
-    <p>
-      This is exercise question 5 ;)
-    </p>
+  <h3 style={{ paddingTop: '50px' }}>Beers I like:</h3>
+  <BeersLikedContainer />
+
   </SideMenu>
 )
 
@@ -21,4 +22,4 @@ Menu.propTypes = {
   toggleMenu: React.PropTypes.func
 }
 
-export default Menu
+export default Menu;
