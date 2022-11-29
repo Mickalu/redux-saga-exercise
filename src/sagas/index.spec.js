@@ -1,12 +1,15 @@
 import { call, put } from 'redux-saga/effects';
 
-import { expect } from 'chai';
-import { getBeers, startSession as apiStartSession } from '../api';
-import {
-  fetchingBeers, receiveSession, FETCHING_BEERS, RECEIVE_BEERS,
-} from '../actions';
+import { call, put, select } from 'redux-saga/effects';
+
+import { fetchingBeers, receiveSession, receiveBeers, FETCHING_BEERS, RECEIVE_BEERS } from '../actions';
 import { fetchBeers, startSession } from '.';
 import { isFetchingBeers, settings as settingsSelector } from '../selectors';
+import { getBeers, startSession as apiStartSession } from '../api';
+import  fetchStartSession  from "./sagaSession";
+import { fetchBeersSaga } from "./sagaBeers";
+import { expect } from 'chai'
+
 
 describe('#Saga: startSession', () => {
   it('should start a session', () => {
