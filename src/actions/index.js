@@ -31,7 +31,21 @@ export const setCurrentBeerIndex = (currentIndex:number) => ({
   currentIndex
 })
 
-export const fetchBeers = () => ({
+export const addLike = (beerId) => ({
+  type: ADD_LIKE,
+  beerId
+});
+
+// Tip: you must replace the following two functions
+// with two simpler actions... level 1 maybe?
+
+/* I'm an action that returns promises (LEVEL 2!)  */
+export const startSessionAction = () => ({
+  type: START_SESSION,
+});
+
+/* I'm an action that dispatches other actions (LEVEL 3!)  */
+export const fetchBeersAction = () => ({
   type: FETCH_BEERS,
 });
 

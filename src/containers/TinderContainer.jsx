@@ -31,8 +31,8 @@ class TinderContainer extends Container {
   }
 
   like = () => {
-    // this.props.addLike();
-    this.next();
+    const beerId = this.props.beer.id;
+    this.props.addLike(beerId);
   }
 
   dislike = () => {
@@ -56,14 +56,15 @@ const mapStateToProps = (state:Object) => ({
   beers: state.beers.data,
   beer: state.beers.data[state.beer.currentIndex],
   currentBeerIndex: state.beer.currentIndex,
-  session: state.settings.session
+  session: state.settings.session,
+  likes: state.likes,
 })
 
 const mapDispatchToProps = (dispatch) => ({
   fetchBeers: () => dispatch(actions.fetchBeersAction()) ,
   setCurrentBeerIndex:  (newCurrentIndex) => dispatch(actions.setCurrentBeerIndex(newCurrentIndex)),
   startSession: () => dispatch(actions.startSessionAction()),
-  addLike: () => dispatch({ type: actions.ADD_LIKE }),
+  addLike: (beerId) => dispatch(actions.addLike(beerId)),
 })
 
 export default connect(
