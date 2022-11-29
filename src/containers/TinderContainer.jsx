@@ -7,7 +7,7 @@ import * as actions from '../actions';
 
 class TinderContainer extends Container {
   constructor (props) {
-    super(props)
+    super(props);
     this.setComponent(Tinder, { props })
   }
 

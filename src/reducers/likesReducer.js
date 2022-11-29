@@ -1,15 +1,15 @@
 import { ADD_BEER_LIKE } from "../actions";
 
-const likes = (state = { likes: []}, action) => {
+const likes = (state = { data: [] } , action) => {
     switch (action.type) {
         case ADD_BEER_LIKE: {
             return {
                 ...state,
-                likes: [...state.likes, action.beerId]
-            }
+                data: [...state.data, action.beerId]
+            };
         }
-    default:
-        return state;
+        default:
+            return state;
     };
 };
 
