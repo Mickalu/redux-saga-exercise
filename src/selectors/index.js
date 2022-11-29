@@ -5,3 +5,7 @@ export const isFetchingBeers = (state: Object) => (
 export const settings = (state: Object) => (
   state.settings
 )
+
+export const getCurrentIndex = (state: Object) => (
+  state.beer.currentIndex
+)
