@@ -36,6 +36,11 @@ export const addLike = (beerId) => ({
   beerId
 });
 
+export const addBeerLiked = (beerId:String) => ({
+  type: ADD_BEER_LIKE,
+  beerId
+});
+
 // Tip: you must replace the following two functions
 // with two simpler actions... level 1 maybe?
 
