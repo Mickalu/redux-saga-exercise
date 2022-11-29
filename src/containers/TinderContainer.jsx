@@ -59,9 +59,9 @@ const mapStateToProps = (state:Object) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchBeers: actions.fetchBeers,
+  fetchBeers: () => dispatch(actions.fetchBeers()),
   setCurrentBeerIndex: actions.setCurrentBeerIndex,
-  startSession: () => dispatch(actions.startSessionAction()),
+  startSession: () => dispatch(actions.startSession()),
 })
 
 export default connect(
