@@ -6,11 +6,6 @@ import { getBeers } from "../api";
 
 export default function* fetchBeersSaga(){
   try{
-    const isFetching = yield select(isFetchingBeers);
-
-    if (isFetching){
-      return
-    };
 
     const settingsInfo = yield select(settings);
 

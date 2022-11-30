@@ -27,15 +27,11 @@ describe('#Saga: fetchBeers', () => {
     const fetchBeerGenerator = fetchBeersSaga();
 
     const paramIsFetchingTrue = { session: { id: "1"} };
-    const fetchingBeersValue = false;
     const beers = { beers: {
       name: "beer",
     }}
 
-    const selectIsFetching = fetchBeerGenerator.next();
-    expect(selectIsFetching.value).to.be.deep.equal(select(isFetchingBeers));
-
-    const selectSettingsInfo = fetchBeerGenerator.next(fetchingBeersValue);
+    const selectSettingsInfo = fetchBeerGenerator.next();
     expect(selectSettingsInfo.value).to.be.deep.equal(select(settingsSelector));
 
     const putFetchingBeersTrue = fetchBeerGenerator.next(paramIsFetchingTrue);
@@ -53,14 +49,11 @@ describe('#Saga: fetchBeers', () => {
   });
 
   it('should NOT fetch beers if it is already fetching beers', () => {
-    const fetchingBeersValue = true;
     const fetchBeerGenerator = fetchBeersSaga();
 
-    const selectIsFetching = fetchBeerGenerator.next();
-    expect(selectIsFetching.value).to.be.deep.equal(select(isFetchingBeers));
 
-    const selectSettingsInfo = fetchBeerGenerator.next(fetchingBeersValue);
-    expect(selectSettingsInfo.value).to.be.deep.equal();
+    const selectSettingsInfo = fetchBeerGenerator.next();
+    expect(selectSettingsInfo.value).to.be.deep.equal(select(settingsSelector));
 
   })
 })
