@@ -11,8 +11,6 @@ describe("#Saga: addBeerLikeSaga ", () => {
             beerId: "1",
         };
 
-        const currentIndex = { currentIndex: 1 };
-
         const addLikeSagaGenerator = addLikesSaga(actionTest);
 
         const putAddBeerLike = addLikeSagaGenerator.next();

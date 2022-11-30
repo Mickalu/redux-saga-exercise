@@ -11,22 +11,22 @@ export const ADD_LIKE = 'ADD_LIKE';
 export const ADD_BEER_LIKE= 'ADD_BEER_LIKE';
 
 /* I'm an action creator (LEVEL 1!)  */
-export const receiveSession = (session:Object) => ({
+export const receiveSession = (session) => ({
   type: RECEIVE_SESSION,
   session
 })
 
-export const fetchingBeers = (isFetching:boolean) => ({
+export const fetchingBeers = (isFetching) => ({
   type: FETCHING_BEERS,
   isFetching
 })
 
-export const receiveBeers = (beers:Array<Object>) => ({
+export const receiveBeers = (beers) => ({
   type: RECEIVE_BEERS,
   beers
 })
 
-export const setCurrentBeerIndex = (currentIndex:number) => ({
+export const setCurrentBeerIndex = (currentIndex) => ({
   type: CURRENT_BEER_INDEX,
   currentIndex
 })
@@ -36,7 +36,7 @@ export const addLike = (beerId) => ({
   beerId
 });
 
-export const addBeerLiked = (beerId:String) => ({
+export const addBeerLiked = (beerId) => ({
   type: ADD_BEER_LIKE,
   beerId
 });
