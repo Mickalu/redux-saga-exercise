@@ -19,7 +19,7 @@ export const startSession = () => (
   .then(session => session)
 )
 
-export const getBeers = (session:string) => (
+export const getBeers = (session) => (
   fetch(`${API_BASE_URL}/public/beers.json`, {
     method: 'GET',
     headers: defaultHeaders
