@@ -5,7 +5,7 @@ import { getBeerInfoByIndex } from "../../../utils/getInfoBeer";
 import {v4} from 'uuid';
 
 const BeersLiked = (props) => {
-  console.log(props)
+  console.log(props);
   return (
     <div>
       {props.likes.data.map((beerId) => {

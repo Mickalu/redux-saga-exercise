@@ -1,4 +1,4 @@
-export const initListBeers =
+const initListBeers =
 [
     {
         "id": "82",
@@ -172,14 +172,20 @@ export const initListBeers =
 ]
 
 
-export const propsLikedBeerEmpty = {
-    likes: {
+const propsLikedBeerEmpty = {
         data: [],
-    },
 };
 
-export const propsLikedBeersNotEmpty = {
-    likes: {
+const propsLikedBeersNotEmpty = {
         data: ["82", "126"],
-    },
 };
+
+export const storeEmptyLikedBeerInit = {
+    likes: propsLikedBeerEmpty,
+    beers: initListBeers,
+};
+
+export const propsLikedBeer = {
+    likes: propsLikedBeersNotEmpty,
+    beers: initListBeers,
+}
