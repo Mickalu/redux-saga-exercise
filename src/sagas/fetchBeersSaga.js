@@ -6,6 +6,7 @@ import { getBeers } from "../api";
 
 export default function* fetchBeersSaga(){
   try{
+
     const settingsInfo = yield select(settings);
 
     yield put(fetchingBeers(true));

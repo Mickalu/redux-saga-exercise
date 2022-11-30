@@ -1,8 +1,7 @@
-
 import { call, put, select } from 'redux-saga/effects';
 
-import { fetchingBeers, receiveSession, receiveBeers, FETCHING_BEERS, RECEIVE_BEERS } from '../actions';
-import { fetchBeers, startSession } from './';
+
+import { fetchingBeers, receiveSession, receiveBeers } from '../actions';
 import { isFetchingBeers, settings as settingsSelector } from '../selectors';
 import { getBeers, startSession as apiStartSession } from '../api';
 import fetchStartSession from "./startSessionSaga";
@@ -28,12 +27,11 @@ describe('#Saga: fetchBeers', () => {
     const fetchBeerGenerator = fetchBeersSaga();
 
     const paramIsFetchingTrue = { session: { id: "1"} };
-    const fetchingBeersValue = false;
     const beers = { beers: {
       name: "beer",
     }}
 
-    const selectSettingsInfo = fetchBeerGenerator.next(fetchingBeersValue);
+    const selectSettingsInfo = fetchBeerGenerator.next();
     expect(selectSettingsInfo.value).to.be.deep.equal(select(settingsSelector));
 
     const putFetchingBeersTrue = fetchBeerGenerator.next(paramIsFetchingTrue);
@@ -51,10 +49,11 @@ describe('#Saga: fetchBeers', () => {
   });
 
   it('should NOT fetch beers if it is already fetching beers', () => {
-    const fetchingBeersValue = true;
     const fetchBeerGenerator = fetchBeersSaga();
 
-    const selectFetchingBeer = fetchBeerGenerator.next();
-    expect(selectFetchingBeer.value).to.be.deep.equal(select(settingsSelector));
+
+    const selectSettingsInfo = fetchBeerGenerator.next();
+    expect(selectSettingsInfo.value).to.be.deep.equal(select(settingsSelector));
+
   })
 })
