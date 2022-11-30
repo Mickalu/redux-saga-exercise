@@ -1,13 +1,11 @@
 import { call, put, select } from 'redux-saga/effects';
 
-
 import { fetchingBeers, receiveSession, receiveBeers } from '../actions';
 import { isFetchingBeers, settings as settingsSelector } from '../selectors';
 import { getBeers, startSession as apiStartSession } from '../api';
 import fetchStartSession from "./startSessionSaga";
 import fetchBeersSaga from "./fetchBeersSaga";
 import { expect } from 'chai'
-
 
 describe('#Saga: startSession', () => {
   it('should start a session', () => {
@@ -23,37 +21,39 @@ describe('#Saga: startSession', () => {
 })
 
 describe('#Saga: fetchBeers', () => {
-  it('should fetch beers if it is not already fetching', () => {
-    const fetchBeerGenerator = fetchBeersSaga();
+  const fetchBeerGenerator = fetchBeersSaga();
 
-    const paramIsFetchingTrue = { session: { id: "1"} };
-    const beers = { beers: {
+  const paramIsFetchingTrue = { session: { id: "1" } };
+  const beers = {
+    beers: {
       name: "beer",
-    }}
+    }
+  }
 
-    const selectSettingsInfo = fetchBeerGenerator.next();
-    expect(selectSettingsInfo.value).to.be.deep.equal(select(settingsSelector));
+  it('should fetch beers if it is not already fetching', () => {
+    it("get settings from state", () => {
+      const selectSettingsInfo = fetchBeerGenerator.next();
+      expect(selectSettingsInfo.value).to.be.deep.equal(select(settingsSelector));
+    });
 
-    const putFetchingBeersTrue = fetchBeerGenerator.next(paramIsFetchingTrue);
-    expect(putFetchingBeersTrue.value).to.be.deep.equal(put(fetchingBeers(true)))
+    it("Change the state.isFetching value to true", () => {
+      const putFetchingBeersTrue = fetchBeerGenerator.next(paramIsFetchingTrue);
+      expect(putFetchingBeersTrue.value).to.be.deep.equal(put(fetchingBeers(true)))
+    });
 
-    const callGetBeers = fetchBeerGenerator.next();
-    expect(callGetBeers.value).to.be.deep.equal(call(getBeers, "1"));
+    it("should run get request for getting beers", () => {
+      const callGetBeers = fetchBeerGenerator.next();
+      expect(callGetBeers.value).to.be.deep.equal(call(getBeers, "1"));
+    });
 
-    const putFetchingBeersFalse = fetchBeerGenerator.next(beers); // put init beers
-    expect(putFetchingBeersFalse.value).to.be.deep.equal(put(fetchingBeers(false)));
+    it("Change the state.isFetching value to true", () => {
+      const putFetchingBeersFalse = fetchBeerGenerator.next(beers);
+      expect(putFetchingBeersFalse.value).to.be.deep.equal(put(fetchingBeers(false)));
+    });
 
-    const putReceiveBeers = fetchBeerGenerator.next();
-    expect(putReceiveBeers.value).to.be.deep.equal(put(receiveBeers(beers)));
-
+    it("put beers from api into the state", () => {
+      const putReceiveBeers = fetchBeerGenerator.next();
+      expect(putReceiveBeers.value).to.be.deep.equal(put(receiveBeers(beers)));
+    })
   });
-
-  it('should NOT fetch beers if it is already fetching beers', () => {
-    const fetchBeerGenerator = fetchBeersSaga();
-
-
-    const selectSettingsInfo = fetchBeerGenerator.next();
-    expect(selectSettingsInfo.value).to.be.deep.equal(select(settingsSelector));
-
-  })
-})
+});
