@@ -9,7 +9,7 @@ class TinderContainer extends Container {
   constructor (props) {
     super(props);
     this.setComponent(Tinder, { props })
-  }
+  };
 
   componentDidMount = () => {
     const { session, fetchBeers, startSession } = this.props;
@@ -17,32 +17,32 @@ class TinderContainer extends Container {
       fetchBeers();
     } else {
       startSession();
-    }
-  }
+    };
+  };
 
   componentWillReceiveProps = (nextProps) => {
     const { session } = this.props;
     if (nextProps.session.id !== session.id) {
       this.props.fetchBeers()
-    }
-  }
+    };
+  };
 
   next = (nextBeerIndex) => {
     const { currentBeerIndex } = this.props;
     const nextBeerIdx = currentBeerIndex + 1;
     this.props.setCurrentBeerIndex(nextBeerIdx)
-  }
+  };
 
   like = () => {
     const { beer } = this.props;
     const beerId = beer.id;
     this.props.addLike(beerId);
-  }
+  };
 
   dislike = () => {
-    this.next()
-  }
-}
+    this.props.nextBeer();
+  };
+};
 
 TinderContainer.propTypes = {
   openSideMenu: React.PropTypes.func,
@@ -70,6 +70,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchBeers: () => dispatch(actions.fetchBeersAction()) ,
   startSession: () => dispatch(actions.startSessionAction()),
   addLike: (beerId) => dispatch(actions.addLike(beerId)),
+  nextBeer: () => dispatch(actions.nextBeer()),
 
   setCurrentBeerIndex: (newCurrentIndex) => dispatch(actions.setCurrentBeerIndex(newCurrentIndex)),
 });

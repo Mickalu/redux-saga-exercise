@@ -9,6 +9,7 @@ export const RECEIVE_SESSION = 'RECEIVE_SESSION';
 export const START_SESSION = 'START_SESSION';
 export const ADD_LIKE = 'ADD_LIKE';
 export const ADD_BEER_LIKE= 'ADD_BEER_LIKE';
+export const NEXT_BEER = 'NEXT_BEER';
 
 /* I'm an action creator (LEVEL 1!)  */
 export const receiveSession = (session) => ({
@@ -39,6 +40,10 @@ export const addLike = (beerId) => ({
 export const addBeerLiked = (beerId) => ({
   type: ADD_BEER_LIKE,
   beerId,
+});
+
+export const nextBeer = () => ({
+  type: NEXT_BEER,
 });
 
 // Tip: you must replace the following two functions
