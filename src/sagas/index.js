@@ -1,12 +1,12 @@
 import { takeLeading } from 'redux-saga/effects';
 
-import fetchStartSession from './startSessionSaga';
-import addLikesSaga from "./addBeerLikeSaga";
-import * as rootBeers from "./fetchBeersSaga";
 import { START_SESSION, FETCH_BEERS, ADD_LIKE } from '../actions';
+import addLikesSaga from "./addBeerLikeSaga";
+import fetchBeersSaga from "./fetchBeersSaga";
+import startSessionSaga from './startSessionSaga';
 
 export default function* rootSaga() {
-  yield takeLeading(START_SESSION, fetchStartSession)
-  yield takeLeading(FETCH_BEERS, rootBeers.fetchBeersSaga)
+  yield takeLeading(START_SESSION, startSessionSaga)
+  yield takeLeading(FETCH_BEERS, fetchBeersSaga)
   yield takeLeading(ADD_LIKE, addLikesSaga)
 };

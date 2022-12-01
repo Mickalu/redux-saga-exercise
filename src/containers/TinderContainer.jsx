@@ -20,14 +20,14 @@ class TinderContainer extends Container {
     }
   }
 
-  componentWillReceiveProps = (nextProps:Object) => {
+  componentWillReceiveProps = (nextProps) => {
     const { session } = this.props;
     if (nextProps.session.id !== session.id) {
       this.props.fetchBeers()
     }
   }
 
-  next = (nextBeerIndex:?number) => {
+  next = (nextBeerIndex) => {
     const { currentBeerIndex } = this.props;
     const nextBeerIdx = currentBeerIndex + 1;
     this.props.setCurrentBeerIndex(nextBeerIdx)
@@ -56,7 +56,7 @@ TinderContainer.defaultProps = {
   beer: { attr: {}, images: {} }
 }
 
-const mapStateToProps = (state:Object) => ({
+const mapStateToProps = (state) => ({
   session: state.settings.session,
 
   beers: state.beers.data,

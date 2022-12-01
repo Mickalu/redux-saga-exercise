@@ -12,7 +12,7 @@ class BeersLikedContainer extends Container {
   }
 }
 
-const mapStateToProps = (state:Object) => ({
+const mapStateToProps = (state) => ({
   likes: state.likes,
   beers: state.beers.data,
 })

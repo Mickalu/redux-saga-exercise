@@ -9,5 +9,5 @@ export default function* startSessionSaga() {
     yield put({ type: RECEIVE_SESSION, session });
   } catch (error) {
     console.log(error);
-  }
-}
+  };
+};
