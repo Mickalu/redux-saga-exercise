@@ -13,32 +13,32 @@ export const ADD_BEER_LIKE= 'ADD_BEER_LIKE';
 /* I'm an action creator (LEVEL 1!)  */
 export const receiveSession = (session) => ({
   type: RECEIVE_SESSION,
-  session
-})
+  session,
+});
 
 export const fetchingBeers = (isFetching) => ({
   type: FETCHING_BEERS,
-  isFetching
-})
+  isFetching,
+});
 
 export const receiveBeers = (beers) => ({
   type: RECEIVE_BEERS,
-  beers
-})
+  beers,
+});
 
 export const setCurrentBeerIndex = (currentIndex) => ({
   type: CURRENT_BEER_INDEX,
-  currentIndex
-})
+  currentIndex,
+});
 
 export const addLike = (beerId) => ({
   type: ADD_LIKE,
-  beerId
+  beerId,
 });
 
 export const addBeerLiked = (beerId) => ({
   type: ADD_BEER_LIKE,
-  beerId
+  beerId,
 });
 
 // Tip: you must replace the following two functions

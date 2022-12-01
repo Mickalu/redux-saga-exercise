@@ -14,12 +14,12 @@ const Menu = ({ isOpen, pageWrapId, toggleMenu }) => (
   <BeersLikedContainer />
 
   </SideMenu>
-)
+);
 
 Menu.propTypes = {
   isOpen: React.PropTypes.bool,
   pageWrapId: React.PropTypes.string,
   toggleMenu: React.PropTypes.func
-}
+};
 
 export default Menu;

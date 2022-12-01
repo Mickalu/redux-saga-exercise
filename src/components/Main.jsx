@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import TinderContainer from '../containers/TinderContainer'
 
 import Header from './Header'

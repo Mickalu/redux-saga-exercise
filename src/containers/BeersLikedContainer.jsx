@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { Container } from 'react-container-component';
 import { connect } from 'react-redux';
+
 import BeersLiked from '../components/Navigations/Menus/BeersLiked';
 
 class BeersLikedContainer extends Container {
@@ -15,11 +17,6 @@ const mapStateToProps = (state:Object) => ({
   beers: state.beers.data,
 })
 
-const mapDispatchToProps = (dispatch) => ({
-
-});
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
 ) (BeersLikedContainer);

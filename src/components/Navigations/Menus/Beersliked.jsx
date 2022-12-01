@@ -1,11 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { v4 } from 'uuid';
 import { getBeerInfoByIndex } from "../../../utils/getInfoBeer";
-import {v4} from 'uuid';
 
 const BeersLiked = (props) => {
-  console.log(props);
   return (
     <div>
       {props.likes.data.map((beerId) => {
@@ -24,5 +23,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
 )(BeersLiked);

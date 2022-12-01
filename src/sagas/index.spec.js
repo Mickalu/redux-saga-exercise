@@ -1,20 +1,16 @@
 import { call, put } from 'redux-saga/effects';
 
-import { call, put, select } from 'redux-saga/effects';
+import { receiveSession } from '../actions';
 
-import { fetchingBeers, receiveSession, receiveBeers, FETCHING_BEERS, RECEIVE_BEERS } from '../actions';
-import { fetchBeers, startSession } from '.';
-import { isFetchingBeers, settings as settingsSelector } from '../selectors';
-import { getBeers, startSession as apiStartSession } from '../api';
-import  fetchStartSession  from "./sagaSession";
-import { fetchBeersSaga } from "./sagaBeers";
-import { expect } from 'chai'
+import { startSession as apiStartSession } from '../api';
+import  fetchStartSession  from "./startSessionSaga";
+import { expect } from 'chai';
 
 
 describe('#Saga: startSession', () => {
   it('should start a session', () => {
     const session = { session: 1 };
-    const startSessionGenerator = startSession();
+    const startSessionGenerator = fetchStartSession();
 
     const callApiStartSession = startSessionGenerator.next();
     expect(callApiStartSession.value).to.be.deep.equal(call(apiStartSession));
