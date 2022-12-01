@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { v4 } from 'uuid';
-import { getBeerInfoByIndex } from "../../../utils/getInfoBeer";
+import { getBeerInfoByIndex } from "../../utils/getInfoBeer";
 
 const BeersLiked = (props) => {
   return (

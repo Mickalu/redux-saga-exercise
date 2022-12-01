@@ -3,12 +3,20 @@ import React from 'react'
 import { Container } from 'react-container-component';
 import { connect } from 'react-redux';
 
-import BeersLiked from '../components/Navigations/Menus/BeersLiked';
+import BeersLiked from './Beersliked/Beersliked';
 
-class BeersLikedContainer extends Container {
+class BeersLikedContainer extends React.Component {
   constructor (props) {
     super(props)
-    this.setComponent(BeersLiked, { props })
+  };
+
+  render() {
+    return (
+      <BeersLiked
+        likes={this.props.likes}
+        beers={this.props.beers}
+      />
+    )
   }
 }
 
