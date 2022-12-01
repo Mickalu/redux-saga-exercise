@@ -3,30 +3,36 @@ import React from "react";
 import { expect } from "chai";
 
 import BeersLiked from "../Beersliked";
-import { initListBeers, propsLikedBeerEmpty, propsLikedBeersNotEmpty } from "../../../../utils/testTools/initValues";
-import { queryAllByTestId, render} from "../../../../utils/testTools/customeMethodRTL";
+import { initListBeers, propsLikedBeerEmpty, propsLikedBeersNotEmpty } from "../../../utils/testTools/initValues";
+import { queryAllByTestId, render, setupStore} from "../../../utils/testTools/customeMethodRTL";
 
-describe("BeersLiked component should display all liked beer title", () => {
-  it("Should display only a div if liked beers array is empty", () => {
+test("BeersLiked Should display only a div if liked beers array is empty", () => {
+  const props = {
+    likes: propsLikedBeerEmpty,
+    beers: initListBeers,
+  };
 
-    render (
-      <BeersLiked
-        likes={ propsLikedBeerEmpty }
-        beers={ initListBeers }
-      />
-    );
+  render (
+    <BeersLiked/>, {
+      preloadedState: props,
+    }
+  );
 
-    expect(queryAllByTestId("beer-title").length).to.be.equal(0);
-  });
+  expect(queryAllByTestId("beer-title").length).to.be.equal(0);
+});
 
-  it("Should return same number of beer-title than number of beers liked", () => {
-    render(
-      <BeersLiked
-        likes={ propsLikedBeersNotEmpty }
-        beers={ initListBeers }
-      />
-    );
+test("Should return same number of beer-title than number of beers liked", () => {
 
-    expect(queryAllByTestId("beer-title").length).to.be.equal(13);
-  })
+  const props = {
+    likes: propsLikedBeersNotEmpty,
+    beers: initListBeers,
+  };
+
+  render (
+    <BeersLiked/>, {
+      preloadedState: props,
+    }
+  )
+
+  expect(queryAllByTestId("beer-title").length).to.be.equal(2);
 });

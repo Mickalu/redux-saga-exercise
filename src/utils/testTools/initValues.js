@@ -1,4 +1,4 @@
-export const initListBeers =
+export const initListBeers = { data:
 [
   {
     "id": "82",
@@ -169,14 +169,14 @@ export const initListBeers =
     "price": "3.2",
     "photo_link": "https://img.saveur-biere.com/img/p/110-16755-thickbox_sb3.jpg"
   }
-]
+]};
 
 
-const propsLikedBeerEmpty = {
+export const propsLikedBeerEmpty = {
   data: [],
 };
 
-const propsLikedBeersNotEmpty = {
+export const propsLikedBeersNotEmpty = {
   data: ["82", "126"],
 };
 
