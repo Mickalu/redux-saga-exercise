@@ -10,8 +10,7 @@ const rootTestReducer = combineReducers({
   beers: beers,
   beer: beer,
   settings: settings,
-})
-;
+});
 
 export const setupStore = preloadedState => {
   return configureStore({

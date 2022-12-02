@@ -6,7 +6,7 @@ import BeersLiked from "../Beersliked";
 import { propsLikedBeerEmpty, propsLikedBeersNotEmpty } from "../../../utils/testTools/initValues";
 import { queryAllByTestId, render } from "../../../utils/testTools/customeMethodRTL";
 
-test("BeersLiked Should display only a div if liked beers array is empty", () => {
+test("BeersLiked should not having beer title", () => {
   render (
     <BeersLiked/>,
     { preloadedState: propsLikedBeerEmpty }

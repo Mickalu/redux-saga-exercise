@@ -6,14 +6,15 @@ import BeersLiked from './Beersliked/Beersliked';
 
 class BeersLikedContainer extends React.Component {
   constructor (props) {
-    super(props)
+    super(props);
   };
 
   render() {
+    const { beers, likes } = this.props;
     return (
       <BeersLiked
-        likes={this.props.likes}
-        beers={this.props.beers}
+        likes={likes}
+        beers={beers}
       />
     );
   };
