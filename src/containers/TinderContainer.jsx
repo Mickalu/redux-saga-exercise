@@ -1,18 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container } from 'react-container-component';
 
 import Tinder from '../components/Game/Tinder';
 import * as actions from '../actions';
 
-class TinderContainer extends Container {
+class TinderContainer extends React.Component {
   constructor (props) {
     super(props);
-    this.setComponent(Tinder, { props })
   };
 
   componentDidMount = () => {
     const { session, fetchBeers, startSession } = this.props;
+    console.log(this.props)
     if (session.id) {
       fetchBeers();
     } else {
@@ -27,14 +26,26 @@ class TinderContainer extends Container {
     };
   };
 
-  like = () => {
+  render() {
     const { beer } = this.props;
-    const beerId = beer.id;
-    this.props.addLike(beerId);
-  };
 
-  dislike = () => {
-    this.props.nextBeer();
+    const like = () => {
+      const { beer } = this.props;
+      const beerId = beer.id;
+      this.props.addLike(beerId);
+    };
+
+    const dislike = () => {
+      this.props.nextBeer();
+    };
+
+    return (
+      <Tinder
+        dislike={dislike}
+        like={like}
+        beer={beer}
+      />
+    );
   };
 };
 
