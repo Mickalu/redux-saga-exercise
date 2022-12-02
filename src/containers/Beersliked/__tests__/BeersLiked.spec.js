@@ -4,7 +4,7 @@ import { expect } from "chai";
 
 import BeersLiked from "../Beersliked";
 import { propsLikedBeerEmpty, propsLikedBeersNotEmpty } from "../../../utils/testTools/initValues";
-import { queryAllByTestId, render, setupStore} from "../../../utils/testTools/customeMethodRTL";
+import { queryAllByTestId, render } from "../../../utils/testTools/customeMethodRTL";
 
 test("BeersLiked Should display only a div if liked beers array is empty", () => {
   render (

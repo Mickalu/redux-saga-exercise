@@ -14,7 +14,6 @@ const screenGetByTestId = (element) => screen.getByTestId(element);
 
 const fireEventCustom = (testId) => fireEvent.click(screen.getByTestId(testId));
 
-
 export function renderWithProviders(
   ui,
   {

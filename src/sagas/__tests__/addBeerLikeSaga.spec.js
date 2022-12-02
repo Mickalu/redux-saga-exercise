@@ -5,7 +5,6 @@ import { getCurrentIndex } from "../../selectors";
 import { addBeerLiked, setCurrentBeerIndex } from "../../actions";
 import { addLikesSaga, nextBeerSaga } from "../addBeerLikeSaga";
 
-
 const actionTest = {
   beerId: "1",
 };
