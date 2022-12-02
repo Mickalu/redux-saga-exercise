@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 import { setupStore } from "./setupRenderTest";
 import { propsLikedBeerEmpty, initListBeers } from "./initValues";
 
-
 const screenQueryAllByTestId = (element) => screen.queryAllByTestId(element);
 
 const screenGetByTestId = (element) => screen.getByTestId(element);
@@ -29,10 +28,10 @@ export function renderWithProviders(
 ) {
   function Wrapper({ children }) {
     return <Provider store={store}>{children}</Provider>;
-  }
+  };
 
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
-}
+};
 
 export * from "@testing-library/react";
 export { renderWithProviders as render };
