@@ -7,8 +7,6 @@ import fetchStartSession from "./startSessionSaga";
 import fetchBeersSaga from "./fetchBeersSaga";
 import { expect } from 'chai'
 
-
-
 it("Saga: startSession should call api session", () => {
   const startSessionGenerator = fetchStartSession();
 
