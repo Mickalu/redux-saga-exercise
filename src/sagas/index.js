@@ -9,5 +9,5 @@ export default function* rootSaga() {
   yield takeLeading(START_SESSION, startSessionSaga)
   yield takeLeading(FETCH_BEERS, fetchBeersSaga)
   yield takeLeading(ADD_LIKE, likeSaga.addLikesSaga)
-  yield takeLeading(NEXT_BEER, likeSaga.nextBeer)
+  yield takeLeading(NEXT_BEER, likeSaga.nextBeerSaga)
 };

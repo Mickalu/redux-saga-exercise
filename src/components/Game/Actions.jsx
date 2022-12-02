@@ -22,6 +22,7 @@ class Actions extends React.Component {
               type="button"
               className="btn btn-danger btn-circle btn-xl"
               name="dislikeBtn"
+              data-testId="dislikeBtn"
             >
               <i className="fa fa-times" aria-hidden="true" />
             </button>
@@ -34,6 +35,7 @@ class Actions extends React.Component {
               type="button"
               className="btn btn-success btn-circle btn-xl"
               name="likeBtn"
+              data-testId="likeBtn"
             >
               <i className="fa fa-heart" aria-hidden="true" />
             </button>

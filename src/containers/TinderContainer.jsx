@@ -27,12 +27,6 @@ class TinderContainer extends Container {
     };
   };
 
-  next = (nextBeerIndex) => {
-    const { currentBeerIndex } = this.props;
-    const nextBeerIdx = currentBeerIndex + 1;
-    this.props.setCurrentBeerIndex(nextBeerIdx)
-  };
-
   like = () => {
     const { beer } = this.props;
     const beerId = beer.id;

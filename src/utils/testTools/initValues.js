@@ -172,20 +172,20 @@ export const initListBeers = { data:
 ]};
 
 
-export const propsLikedBeerEmpty = {
+export const likedBeerEmpty = {
   data: [],
 };
 
-export const propsLikedBeersNotEmpty = {
+export const likedBeersNotEmpty = {
   data: ["82", "126"],
 };
 
-export const storeEmptyLikedBeerInit = {
-  likes: propsLikedBeerEmpty,
+export const propsLikedBeerEmpty = {
+  likes: likedBeerEmpty,
   beers: initListBeers,
 };
 
-export const propsLikedBeer = {
-  likes: propsLikedBeersNotEmpty,
+export const propsLikedBeersNotEmpty = {
+  likes: likedBeersNotEmpty,
   beers: initListBeers,
 }

@@ -10,7 +10,7 @@ export function* addLikesSaga (action) {
   yield put(setCurrentBeerIndex(currentIndex + 1));
 };
 
-export function* nextBeer () {
+export function* nextBeerSaga () {
   const currentIndex = yield select(getCurrentIndex)
   yield put(setCurrentBeerIndex(currentIndex + 1));
 };
