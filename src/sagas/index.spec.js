@@ -1,11 +1,11 @@
 import { call, put, select } from 'redux-saga/effects';
 
-import { fetchingBeers, receiveSession, receiveBeers } from '../actions';
-import { settings as settingsSelector } from '../selectors';
-import { getBeers, startSession as apiStartSession } from '../api';
+import { expect } from "chai";
 import fetchStartSession from "./startSessionSaga";
 import fetchBeersSaga from "./fetchBeersSaga";
-import { expect } from 'chai'
+import { fetchingBeers, receiveSession, receiveBeers } from '../actions';
+import { getBeers, startSession as apiStartSession } from '../api';
+import { settings as settingsSelector } from '../selectors';
 
 it("Saga: startSession should call api session", () => {
   const startSessionGenerator = fetchStartSession();
