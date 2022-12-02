@@ -1,4 +1,4 @@
-import { call, put, select } from "redux-saga/effects";
+import { put, select } from "redux-saga/effects";
 
 import { ADD_BEER_LIKE, setCurrentBeerIndex } from "../actions";
 import { getCurrentIndex } from "../selectors";

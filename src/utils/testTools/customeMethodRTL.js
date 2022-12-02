@@ -14,6 +14,8 @@ const screenGetByTestId = (element) => screen.getByTestId(element);
 
 const fireEventCustom = (testId) => fireEvent.click(screen.getByTestId(testId));
 
+const getByRoleCustom = (role) => screen.getByRole(screen.getByRole(role));
+
 export function renderWithProviders(
   ui,
   {
@@ -37,3 +39,4 @@ export { renderWithProviders as render };
 export { screenQueryAllByTestId as queryAllByTestId };
 export { fireEventCustom as fireEvent };
 export { screenGetByTestId as getByTestId };
+export { getByRoleCustom as getByRole };
