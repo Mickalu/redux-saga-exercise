@@ -11,7 +11,6 @@ class TinderContainer extends React.Component {
 
   componentDidMount = () => {
     const { session, fetchBeers, startSession } = this.props;
-    console.log(this.props)
     if (session.id) {
       fetchBeers();
     } else {

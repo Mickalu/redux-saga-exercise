@@ -1,11 +1,10 @@
 import React from "react";
 
 import { screen, fireEvent } from '@testing-library/dom';
-import { render } from "@testing-library/react";
+import { render as RTLRender} from "@testing-library/react";
 import { Provider } from "react-redux";
 
-import { setupStore } from "./setupRenderTest";
-import { propsLikedBeerEmpty, initListBeers } from "./initValues";
+import configureStore from "../../store/configureStore.dev";
 
 const screenQueryAllByTestId = (element) => screen.queryAllByTestId(element);
 
@@ -15,26 +14,17 @@ const fireEventCustom = (testId) => fireEvent.click(screen.getByTestId(testId));
 
 const getByRoleCustom = (role) => screen.getByRole(screen.getByRole(role));
 
-export function renderWithProviders(
-  ui,
-  {
-    preloadedState = {
-      likes: propsLikedBeerEmpty,
-      beers: initListBeers,
-    },
-    store = setupStore(preloadedState),
-    ...renderOptions
-  } = {}
-) {
-  function Wrapper({ children }) {
-    return <Provider store={store}>{children}</Provider>;
-  };
+const store = configureStore();
 
-  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
-};
+const renderWithProviders = ({children}) => (
+  <Provider store={store}>
+    { children }
+  </Provider>
+);
+
+export const render = (ui, options = {}) => RTLRender(ui, { wrapper: renderWithProviders, ...options });
 
 export * from "@testing-library/react";
-export { renderWithProviders as render };
 export { screenQueryAllByTestId as queryAllByTestId };
 export { fireEventCustom as fireEvent };
 export { screenGetByTestId as getByTestId };

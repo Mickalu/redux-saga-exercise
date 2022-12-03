@@ -2,13 +2,15 @@ import React from "react";
 import '@testing-library/jest-dom';
 
 import { render, getByTestId } from "../../utils/testTools/customeMethodRTL";
-import { tinderContainerProps } from "../../utils/testTools/initValues";
+import { tinderContainerProps, initListBeers, firstBeer } from "../../utils/testTools/initValues";
 import TinderContainer from "../TinderContainer";
 
 test("TinderContainer should contain like button", () => {
   render(
-    <TinderContainer />,
-    { preloadedState: tinderContainerProps },
+    <TinderContainer
+      beer={firstBeer}
+      beers={initListBeers}
+    />
   );
 
   expect(getByTestId("likeBtn")).toBeInTheDocument();
@@ -16,8 +18,10 @@ test("TinderContainer should contain like button", () => {
 
 test("TinderContainer should contain dislike button", () => {
   render(
-    <TinderContainer />,
-    { preloadedState: tinderContainerProps },
+    <TinderContainer
+    beer={firstBeer}
+    beers={initListBeers}
+    />
   );
 
   expect(getByTestId("dislikeBtn")).toBeInTheDocument();
