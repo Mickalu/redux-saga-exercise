@@ -10,4 +10,4 @@ export default function* startSessionSaga() {
   } catch (error) {
     console.log(error);
   }
-}
+};

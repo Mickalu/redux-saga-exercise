@@ -7,7 +7,7 @@ import { fetchingBeers, receiveSession, receiveBeers } from '../actions';
 import { getBeers, startSession as apiStartSession } from '../api';
 import { settings as settingsSelector } from '../selectors';
 
-it("Saga: startSession should call api session", () => {
+test("Saga: startSession should call api session", () => {
   const startSessionGenerator = fetchStartSession();
 
   const callApiStartSession = startSessionGenerator.next();
@@ -15,7 +15,7 @@ it("Saga: startSession should call api session", () => {
   expect(callApiStartSession.value).to.be.deep.equal(call(apiStartSession));
 });
 
-it('Saga: startSession should implement session status to the state', () => {
+test('Saga: startSession should implement session status to the state', () => {
   const startSessionGenerator = fetchStartSession();
   const session = { session: 1 };
 
@@ -33,7 +33,7 @@ const beers = {
   }
 };
 
-it("#Saga: fetchBeers  get settings from state", () => {
+test("#Saga: fetchBeers  get settings from state", () => {
   const fetchBeerGenerator = fetchBeersSaga();
 
   const selectSettingsselectInfo = fetchBeerGenerator.next();
@@ -41,7 +41,7 @@ it("#Saga: fetchBeers  get settings from state", () => {
   expect(selectSettingsselectInfo.value).to.be.deep.equal(select(settingsSelector));
 });
 
-it("#Saga: fetchBeers Change the state.isFetching value to true", () => {
+test("#Saga: fetchBeers Change the state.isFetching value to true", () => {
   const fetchBeerGenerator = fetchBeersSaga();
 
   fetchBeerGenerator.next();
@@ -51,7 +51,7 @@ it("#Saga: fetchBeers Change the state.isFetching value to true", () => {
   expect(putFetchingBeersTrue.value).to.be.deep.equal(put(fetchingBeers(true)))
 });
 
-it("#Saga: fetchBeers should run get request for getting beers", () => {
+test("#Saga: fetchBeers should run get request for getting beers", () => {
   const fetchBeerGenerator = fetchBeersSaga();
 
   fetchBeerGenerator.next();
@@ -62,7 +62,7 @@ it("#Saga: fetchBeers should run get request for getting beers", () => {
   expect(callGetBeers.value).to.be.deep.equal(call(getBeers, "1"));
 });
 
-it("#Saga: fetchBeers Change the state.isFetching value to true", () => {
+test("#Saga: fetchBeers Change the state.isFetching value to true", () => {
   const fetchBeerGenerator = fetchBeersSaga();
 
   fetchBeerGenerator.next();
@@ -74,7 +74,7 @@ it("#Saga: fetchBeers Change the state.isFetching value to true", () => {
   expect(putFetchingBeersFalse.value).to.be.deep.equal(put(fetchingBeers(false)));
 });
 
-it("#Saga: fetchBeers put beers from api into the state", () => {
+test("#Saga: fetchBeers put beers from api into the state", () => {
   const fetchBeerGenerator = fetchBeersSaga();
 
   fetchBeerGenerator.next();

@@ -48,7 +48,10 @@ class Beer extends React.Component {
                   ref={node => this.beerImg = node}
                   src={beer.photo_link}
                   onLoad={imageLoaded}
-                  onError={() => { this.props.setLoadingBeer(false) }}
+                  onError={({ currentTarget }) => {
+                    this.props.setLoadingBeer(false);
+                    currentTarget.src = "";
+                  }}
                   role="presentation"
                   name="beerImg"
                 />

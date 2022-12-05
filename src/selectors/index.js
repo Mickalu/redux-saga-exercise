@@ -1,7 +1,7 @@
-export const isFetchingBeers = (state: Object) => (
+export const isFetchingBeers = (state) => (
   state.beers.isFetching
-)
+);
 
-export const settings = (state: Object) => (
+export const settings = (state) => (
   state.settings
-)
+);

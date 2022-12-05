@@ -1,6 +1,8 @@
 import { RECEIVE_BEERS, FETCHING_BEERS } from '../actions';
 
-const beers = (state = { data: [], isFetching: false }, action) => {
+const initState = { data: [], isFetching: false };
+
+const beers = (state = initState, action) => {
   switch (action.type) {
     case RECEIVE_BEERS: {
       return {

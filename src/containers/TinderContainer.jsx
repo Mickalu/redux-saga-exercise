@@ -1,43 +1,52 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Container } from 'react-container-component'
+import React from 'react';
+import { connect } from 'react-redux';
 
-import Tinder from '../components/Game/Tinder'
-import * as actions from '../actions'
+import Tinder from '../components/Game/Tinder';
+import * as actions from '../actions';
 
-class TinderContainer extends Container {
+class TinderContainer extends React.Component {
   constructor (props) {
-    super(props)
-    this.setComponent(Tinder, { props })
-  }
+    super(props);
+  };
 
   componentDidMount = () => {
-    if (this.props.session.id) {
-      this.props.fetchBeers();
+    const { session, fetchBeers, startSession } = this.props;
+    if (session.id) {
+      fetchBeers();
     } else {
-      this.props.startSession();
+      startSession();
     }
-  }
+  };
 
-  componentWillReceiveProps = (nextProps:Object) => {
-    if (nextProps.session.id !== this.props.session.id) {
-      this.props.fetchBeers()
+  componentWillReceiveProps = (nextProps) => {
+    const { session, fetchBeers } = this.props;
+    if (nextProps.session.id !== session.id) {
+      fetchBeers();
     }
-  }
+  };
 
-  next = (nextBeerIndex:?number) => {
-    const nextBeerIdx = this.props.currentBeerIndex + 1
-    this.props.setCurrentBeerIndex(nextBeerIdx)
-  }
 
   like = () => {
-    this.next()
-  }
+    const { beer, addLike } = this.props;
+    addLike(beer.id);
+  };
 
   dislike = () => {
-    this.next()
-  }
-}
+    this.props.nextBeer();
+  };
+
+  render() {
+    const { beer } = this.props;
+
+    return (
+      <Tinder
+        dislike={this.dislike}
+        like={this.like}
+        beer={beer}
+      />
+    );
+  };
+};
 
 TinderContainer.propTypes = {
   openSideMenu: React.PropTypes.func,
@@ -51,20 +60,26 @@ TinderContainer.defaultProps = {
   beer: { attr: {}, images: {} }
 }
 
-const mapStateToProps = (state:Object) => ({
-  beers: state.beers.data,
+const mapStateToProps = (state) => ({
   beer: state.beers.data[state.beer.currentIndex],
+  beers: state.beers.data,
   currentBeerIndex: state.beer.currentIndex,
-  session: state.settings.session
-})
+
+  likes: state.likes,
+
+  session: state.settings.session,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchBeers: () => dispatch(actions.fetchBeers()),
-  setCurrentBeerIndex: actions.setCurrentBeerIndex,
-  startSession: () => dispatch(actions.startSession()),
-})
+  fetchBeers: () => dispatch(actions.fetchBeersAction()) ,
+  nextBeer: () => dispatch(actions.nextBeer()),
+  startSession: () => dispatch(actions.startSessionAction()),
+
+  addLike: (beerId) => dispatch(actions.addLike(beerId)),
+  setCurrentBeerIndex: (newCurrentIndex) => dispatch(actions.setCurrentBeerIndex(newCurrentIndex)),
+});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(TinderContainer)
