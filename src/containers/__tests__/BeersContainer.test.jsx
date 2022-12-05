@@ -9,8 +9,8 @@ import BeersLikedContainer from "../BeersLikedContainer";
 test("BeersLikedContwiner should not having beer title", () => {
   render(
     <BeersLikedContainer.WrappedComponent
-      likes={ likedBeerEmpty }
-      beers={ initListBeers }
+      likes={likedBeerEmpty}
+      beers={initListBeers}
     />
   );
 
@@ -18,9 +18,10 @@ test("BeersLikedContwiner should not having beer title", () => {
 });
 
 test("Should return same number of beer-title than number of beers liked", () => {
-  render( <BeersLikedContainer.WrappedComponent
-      likes={ likedBeersNotEmpty }
-      beers={ initListBeers }
+  render(
+    <BeersLikedContainer.WrappedComponent
+      likes={likedBeersNotEmpty}
+      beers={initListBeers}
     />
   );
 
