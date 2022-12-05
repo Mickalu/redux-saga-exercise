@@ -15,14 +15,14 @@ class TinderContainer extends React.Component {
       fetchBeers();
     } else {
       startSession();
-    };
+    }
   };
 
   componentWillReceiveProps = (nextProps) => {
     const { session, fetchBeers } = this.props;
     if (nextProps.session.id !== session.id) {
       fetchBeers();
-    };
+    }
   };
 
 
