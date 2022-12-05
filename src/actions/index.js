@@ -1,7 +1,6 @@
 // @flow
 import * as api from '../api';
 
-export const CURRENT_BEER_INDEX = 'CURRENT_BEER_INDEX';
 export const FETCH_BEERS = 'FETCH_BEERS';
 export const FETCHING_BEERS = 'FETCHING_BEERS';
 export const RECEIVE_BEERS = 'RECEIVE_BEERS';
@@ -26,11 +25,6 @@ export const fetchingBeers = (isFetching) => ({
 export const receiveBeers = (beers) => ({
   type: RECEIVE_BEERS,
   beers,
-});
-
-export const setCurrentBeerIndex = (currentIndex) => ({
-  type: CURRENT_BEER_INDEX,
-  currentIndex,
 });
 
 export const addLike = (beerId) => ({
