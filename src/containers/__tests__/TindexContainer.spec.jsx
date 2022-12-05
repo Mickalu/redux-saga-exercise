@@ -19,8 +19,8 @@ test("TinderContainer should contain like button", () => {
 test("TinderContainer should contain dislike button", () => {
   render(
     <TinderContainer
-    beer={firstBeer}
-    beers={initListBeers}
+      beer={firstBeer}
+      beers={initListBeers}
     />
   );
 

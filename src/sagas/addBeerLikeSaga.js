@@ -6,11 +6,9 @@ import { getCurrentIndex } from "../selectors";
 export function* addLikesSaga (action) {
   yield put({ type: ADD_BEER_LIKE, beerId: action.beerId});
 
-  const currentIndex = yield select(getCurrentIndex)
   yield put(incrementIndexBeer());
 };
 
 export function* nextBeerSaga () {
-  const currentIndex = yield select(getCurrentIndex)
   yield put(incrementIndexBeer());
 };
