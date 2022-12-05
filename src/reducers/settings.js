@@ -1,6 +1,8 @@
 import { RECEIVE_SESSION } from '../actions';
 
-const settings = (state = { session: {} }, action) => {
+const initSettings = { session: {} };
+
+const settings = (state = initSettings, action) => {
   switch (action.type) {
     case RECEIVE_SESSION:
       return { ...state, session: action.session };
