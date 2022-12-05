@@ -171,17 +171,17 @@ export const initListBeers = [
 ];
 
 const firstBeer = {
-  "id": "82",
-  "title": "Karmeliet Triple",
-  "description": "<p>Do we really have to introduce Triple Karmeliet, our best-selling beer?</p>",
-  "country": "Belgium",
-  "type_beer": "Tripel",
-  "company": "Brasserie Bosteels",
-  "colour": "Blond",
-  "graduation": "6 %",
-  "size": "33 cl",
-  "price": "2.5",
-  "photo_link": "https://img.saveur-biere.com/img/p/82-14662-thickbox_sb3.jpg"
+  id: "82",
+  title: "Karmeliet Triple",
+  description: "<p>Do we really have to introduce Triple Karmeliet, our best-selling beer?</p>",
+  country: "Belgium",
+  type_beer: "Tripel",
+  company: "Brasserie Bosteels",
+  colour: "Blond",
+  graduation: "6 %",
+  size: "33 cl",
+  price: "2.5",
+  photo_link: "https://img.saveur-biere.com/img/p/82-14662-thickbox_sb3.jpg"
 };
 
 export const likedBeerEmpty = {
