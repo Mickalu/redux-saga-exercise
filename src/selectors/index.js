@@ -5,7 +5,3 @@ export const isFetchingBeers = (state) => (
 export const settings = (state) => (
   state.settings
 );
-
-export const getCurrentIndex = (state) => (
-  state.beer.currentIndex
-);
