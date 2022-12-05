@@ -14,15 +14,10 @@ const BeersLiked = (props) => {
           return (
             <div data-testid="beer-title" key={`div-beer-liked-${v4()}`}> {titleBeer} </div>
           );
-        }
+        };
       })}
     </div>
   )
 };
-
-const mapStateToProps = (state) => ({
-  likes: state.likes,
-  beers: state.beers.data,
-})
 
 export default BeersLiked;
