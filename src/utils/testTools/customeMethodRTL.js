@@ -16,7 +16,7 @@ const getByRoleCustom = (role) => screen.getByRole(screen.getByRole(role));
 
 const store = configureStore();
 
-const renderWithProviders = ({children}) => (
+const renderWithProviders = ({ children }) => (
   <Provider store={store}>
     { children }
   </Provider>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux';
 
-import BeersLiked from './Beersliked/Beersliked';
+import BeersLiked from '../components/Beersliked/Beersliked';
 
 class BeersLikedContainer extends React.Component {
   constructor (props) {

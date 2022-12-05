@@ -2,7 +2,7 @@ import React from "react";
 import '@testing-library/jest-dom';
 
 import { render, getByTestId } from "../../utils/testTools/customeMethodRTL";
-import { tinderContainerProps, initListBeers, firstBeer } from "../../utils/testTools/initValues";
+import { initListBeers, firstBeer } from "../../utils/testTools/initValues";
 import TinderContainer from "../TinderContainer";
 
 test("TinderContainer should contain like button", () => {

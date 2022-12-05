@@ -5,7 +5,7 @@ const likes = (state = { data: [] } , action) => {
     case ADD_BEER_LIKE: {
       return {
         ...state,
-          data: [...state.data, action.beerId]
+        data: [...state.data, action.beerId],
       };
     }
     default:

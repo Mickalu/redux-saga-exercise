@@ -1,11 +1,10 @@
-import { CURRENT_BEER_INDEX } from '../actions';
+import { INCREMENT_INDEX_BEER } from '../actions';
 
 const beer = (state = { currentIndex: 0 }, action) => {
   switch (action.type) {
-    case CURRENT_BEER_INDEX:
+    case INCREMENT_INDEX_BEER:
       return {
-        ...state,
-        currentIndex: action.currentIndex,
+        currentIndex: action.currentIndex + 1,
       };
     default:
       return state;

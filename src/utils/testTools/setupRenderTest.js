@@ -12,9 +12,9 @@ const rootTestReducer = combineReducers({
   settings: settings,
 });
 
-export const setupStore = preloadedState => {
+export default setupStore = (preloadedState) => {
   return configureStore({
     reducer: rootTestReducer,
     preloadedState,
-  })
+  });
 };

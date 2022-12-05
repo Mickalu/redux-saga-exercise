@@ -19,29 +19,29 @@ class TinderContainer extends React.Component {
   };
 
   componentWillReceiveProps = (nextProps) => {
-    const { session } = this.props;
+    const { session, fetchBeers } = this.props;
     if (nextProps.session.id !== session.id) {
-      this.props.fetchBeers();
+      fetchBeers();
     };
+  };
+
+
+  like = () => {
+    const { beer, addLike } = this.props;
+    addLike(beer.id);
+  };
+
+  dislike = () => {
+    this.props.nextBeer();
   };
 
   render() {
     const { beer } = this.props;
 
-    const like = () => {
-      const { beer } = this.props;
-      const beerId = beer.id;
-      this.props.addLike(beerId);
-    };
-
-    const dislike = () => {
-      this.props.nextBeer();
-    };
-
     return (
       <Tinder
-        dislike={dislike}
-        like={like}
+        dislike={this.dislike}
+        like={this.like}
         beer={beer}
       />
     );
@@ -61,21 +61,21 @@ TinderContainer.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-  session: state.settings.session,
-
   beer: state.beers.data[state.beer.currentIndex],
   beers: state.beers.data,
   currentBeerIndex: state.beer.currentIndex,
 
   likes: state.likes,
+
+  session: state.settings.session,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addLike: (beerId) => dispatch(actions.addLike(beerId)),
   fetchBeers: () => dispatch(actions.fetchBeersAction()) ,
   nextBeer: () => dispatch(actions.nextBeer()),
   startSession: () => dispatch(actions.startSessionAction()),
 
+  addLike: (beerId) => dispatch(actions.addLike(beerId)),
   setCurrentBeerIndex: (newCurrentIndex) => dispatch(actions.setCurrentBeerIndex(newCurrentIndex)),
 });
 
