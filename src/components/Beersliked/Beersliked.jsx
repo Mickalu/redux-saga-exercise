@@ -25,6 +25,4 @@ const mapStateToProps = (state) => ({
   beers: state.beers.data,
 })
 
-export default connect(
-  mapStateToProps,
-)(BeersLiked);
+export default BeersLiked;
