@@ -47,9 +47,8 @@ export const nextBeer = () => ({
   type: NEXT_BEER,
 });
 
-export const incrementIndexBeer = (currentIndex) => ({
+export const incrementIndexBeer = () => ({
   type: INCREMENT_INDEX_BEER,
-  currentIndex
 });
 
 // Tip: you must replace the following two functions

@@ -33,7 +33,7 @@ test("should change current beer to the next one into the state", () => {
   addLikeSagaGenerator.next();
 
   const putIncrementIndexBeer = addLikeSagaGenerator.next(1);
-  expect(putIncrementIndexBeer.value).to.be.deep.equal(put(incrementIndexBeer(1)));
+  expect(putIncrementIndexBeer.value).to.be.deep.equal(put(incrementIndexBeer()));
 });
 
 test("next function saga should select current beer index ", () => {
@@ -49,5 +49,5 @@ test("next function saga should change current beer index for the next one", () 
   nextBeerSagaGenerator.next();
   const putIncrementIndexBeer = nextBeerSagaGenerator.next(1);
 
-  expect(putIncrementIndexBeer.value).to.be.deep.equal(put(incrementIndexBeer(1)));
+  expect(putIncrementIndexBeer.value).to.be.deep.equal(put(incrementIndexBeer()));
 });

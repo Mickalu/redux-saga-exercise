@@ -4,7 +4,7 @@ const beer = (state = { currentIndex: 0 }, action) => {
   switch (action.type) {
     case INCREMENT_INDEX_BEER:
       return {
-        currentIndex: action.currentIndex + 1,
+        currentIndex: state.currentIndex + 1,
       };
     default:
       return state;
